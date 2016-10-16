@@ -15,6 +15,10 @@ class ImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
+  def cache_dir
+    "/tmp/flixter_uploads"
+  end
+
   process resize_to_fill: [800, 350]
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
